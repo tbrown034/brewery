@@ -8,6 +8,11 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
+  const handleReset = () => {
+    setBrewery(null);
+    setIsLoaded(false);
+  };
+
   const fetchBrewery = async () => {
     try {
       const cacheBuster = new Date().getTime(); // Get the current timestamp
@@ -52,6 +57,18 @@ export default function Home() {
             <p>
               {brewery.city}, {brewery.state}
             </p>
+
+            <div className="flex flex-col gap-2">
+              <button
+                onClick={handleReset}
+                className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600"
+              >
+                Reset
+              </button>
+              <button className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600">
+                Get More information
+              </button>
+            </div>
           </div>
         )}
         {error && <p className="text-red-500">{error}</p>}
