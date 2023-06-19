@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const url = "https://api.openbrewerydb.org/breweries/random";
@@ -65,9 +66,11 @@ export default function Home() {
               >
                 Reset
               </button>
-              <button className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600">
-                Get More information
-              </button>
+              <Link href={`/brewery/${brewery.id}`}>
+                <button className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600">
+                  Get More information
+                </button>
+              </Link>
             </div>
           </div>
         )}
