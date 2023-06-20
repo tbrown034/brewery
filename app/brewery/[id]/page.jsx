@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import beer from "../../../public/beer.jpg";
 
 export default function BreweryPage({ params }) {
   const breweryId = params.id;
@@ -55,9 +56,8 @@ export default function BreweryPage({ params }) {
     return (
       <div className="relative min-h-screen">
         <Image
-          src="/beerBody.jpg"
+          src={beer}
           alt="Background of beers"
-          layout="fill"
           objectFit="cover"
           quality={100}
         />

@@ -37,8 +37,7 @@ export default function Home() {
       <Image
         src="/beer.jpg"
         alt="Background of beers"
-        layout="fill"
-        objectFit="cover"
+        fill={true}
         quality={100}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-20 px-4 text-center text-yellow-200">
@@ -56,7 +55,7 @@ export default function Home() {
         </div>
         {isLoaded && brewery && (
           <>
-            <div className="flex flex-col gap-2 p-8 bg-opacity-50 border-2 border-yellow-400 rounded-xl ">
+            <div className="flex flex-col gap-2 p-8 bg-opacity-50 rounded-xl ">
               <h3 className="text-xl font-bold">{brewery.name}</h3>
               <p>
                 {brewery.city}, {brewery.state}
