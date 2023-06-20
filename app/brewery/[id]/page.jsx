@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import beer from "../../../public/beer.jpg";
+import beer from "../../../public/beerBody.jpg";
 
 export default function BreweryPage({ params }) {
   const breweryId = params.id;
@@ -55,12 +55,7 @@ export default function BreweryPage({ params }) {
   } else {
     return (
       <div className="relative min-h-screen">
-        <Image
-          src={beer}
-          alt="Background of beers"
-          objectFit="cover"
-          quality={100}
-        />
+        <Image src={beer} alt="Background of beers" fill={true} quality={100} />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-4 text-center text-yellow-200">
           <h1 className="text-4xl font-bold ">
             Brewery Spotlight: {brewery.name}
