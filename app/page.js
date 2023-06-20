@@ -41,38 +41,43 @@ export default function Home() {
         objectFit="cover"
         quality={100}
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center text-yellow-200">
-        <h1 className="text-4xl font-bold">Brewing up Some Code</h1>
-        <h2 className="text-2xl">
-          Helping you discover new breweries across the country
-        </h2>
-        <button
-          onClick={fetchBrewery}
-          className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600"
-        >
-          {isLoaded ? "Get Another Random Brewery" : "Get Random Brewery"}
-        </button>
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-20 px-4 text-center text-yellow-200">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-4xl font-bold">Brewing up Some Code</h1>
+          <h2 className="text-2xl">
+            Helping you discover new breweries across the country
+          </h2>
+          <button
+            onClick={fetchBrewery}
+            className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600"
+          >
+            {isLoaded ? "Get Another Random Brewery" : "Get Random Brewery"}
+          </button>
+        </div>
         {isLoaded && brewery && (
-          <div className="p-4">
-            <h3 className="text-xl font-bold">{brewery.name}</h3>
-            <p>
-              {brewery.city}, {brewery.state}
-            </p>
+          <>
+            <div className="flex flex-col gap-2 p-8 bg-opacity-50 border-2 border-yellow-400 rounded-xl ">
+              <h3 className="text-xl font-bold">{brewery.name}</h3>
+              <p>
+                {brewery.city}, {brewery.state}
+              </p>
 
-            <div className="flex flex-col gap-2">
-              <button
-                onClick={handleReset}
-                className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600"
-              >
-                Reset
-              </button>
-              <Link href={`/brewery/${brewery.id}`}>
-                <button className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600">
-                  Get More information
-                </button>
-              </Link>
+              <div className="flex flex-col gap-2">
+                <Link href={`/brewery/${brewery.id}`}>
+                  <button className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600">
+                    Get More information on{" "}
+                    <span className="font-bold">{brewery.name}</span>
+                  </button>
+                </Link>
+              </div>
             </div>
-          </div>
+            <button
+              onClick={handleReset}
+              className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600"
+            >
+              Reset
+            </button>
+          </>
         )}
         {error && <p className="text-red-500">{error}</p>}
       </div>

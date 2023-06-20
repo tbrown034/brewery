@@ -59,7 +59,7 @@ export default function BreweryPage({ params }) {
           <p>Brewery phone: {brewery.phone}</p>
           <p>
             Brewery Website:{" "}
-            <Link href={brewery.website_url}>{brewery.website_url}</Link>
+            <Link href={brewery.website_url}> {brewery.website_url} </Link>
           </p>
         </div>
       </div>
