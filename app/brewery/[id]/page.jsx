@@ -33,6 +33,20 @@ export default function BreweryPage({ params }) {
     fetchBrewery();
   }, [breweryId]);
 
+  // Capitalize the brewery type if it exists
+  const capitalizedType = brewery?.brewery_type
+    ? brewery.brewery_type.charAt(0).toUpperCase() +
+      brewery.brewery_type.slice(1)
+    : "";
+
+  // Format the phone number if it exists (assuming a 10-digit format)
+  const formattedPhone = brewery?.phone
+    ? `(${brewery.phone.slice(0, 3)}) ${brewery.phone.slice(
+        3,
+        6
+      )}-${brewery.phone.slice(6)}`
+    : "";
+
   if (error) {
     return <div>Error: {error}</div>;
   } else if (!isLoaded) {
@@ -47,20 +61,38 @@ export default function BreweryPage({ params }) {
           objectFit="cover"
           quality={100}
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center text-yellow-200">
-          <h1 className="text-4xl font-bold">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-4 text-center text-yellow-200">
+          <h1 className="mb-4 text-4xl font-bold">
             Brewery Spotlight: {brewery.name}
           </h1>
-          <h2 className="text-lg ">
-            {brewery.city}, {brewery.state}
+          <h2 className="mb-2 text-2xl">
+            <span className="font-bold">
+              {brewery.city}, {brewery.state}
+            </span>
           </h2>
-          <p>Brewery Type: {brewery.brewery_type}</p>
-          <p>Brewery address: {brewery.address_1}</p>
-          <p>Brewery phone: {brewery.phone}</p>
-          <p>
-            Brewery Website:{" "}
-            <Link href={brewery.website_url}> {brewery.website_url} </Link>
-          </p>
+          <div className="p-4 bg-yellow-800 rounded-lg">
+            <p className="font-bold">Brewery Type:</p>
+            <p>{capitalizedType}</p>
+          </div>
+          <div className="p-4 bg-yellow-800 rounded-lg">
+            <p className="font-bold">Brewery Address:</p>
+            <p>{brewery.address_1}</p>
+          </div>
+          <div className="p-4 bg-yellow-800 rounded-lg">
+            <p className="font-bold">Brewery Phone:</p>
+            <p>{formattedPhone}</p>
+          </div>
+          <div className="p-4 bg-yellow-800 rounded-lg">
+            <p className="font-bold">Brewery Website:</p>
+            <p>
+              <a
+                href={brewery.website_url}
+                className="text-yellow-200 underline"
+              >
+                {brewery.website_url?.replace(/^(https?:\/\/)?(www\.)?/i, "")}
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     );

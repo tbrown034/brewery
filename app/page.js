@@ -64,7 +64,7 @@ export default function Home() {
 
               <div className="flex flex-col gap-2">
                 <Link href={`/brewery/${brewery.id}`}>
-                  <button className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600">
+                  <button className="p-2 px-20 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600">
                     Get More information on{" "}
                     <span className="font-bold">{brewery.name}</span>
                   </button>
@@ -73,7 +73,7 @@ export default function Home() {
             </div>
             <button
               onClick={handleReset}
-              className="p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600"
+              className="w-1/4 p-2 text-white bg-yellow-800 rounded-lg opacity-90 hover:bg-yellow-700 active:bg-yellow-600"
             >
               Reset
             </button>
