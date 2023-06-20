@@ -62,7 +62,7 @@ export default function BreweryPage({ params }) {
           quality={100}
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-4 text-center text-yellow-200">
-          <h1 className="mb-4 text-4xl font-bold">
+          <h1 className="text-4xl font-bold ">
             Brewery Spotlight: {brewery.name}
           </h1>
           <h2 className="mb-2 text-2xl">
@@ -90,6 +90,12 @@ export default function BreweryPage({ params }) {
               </a>
             </p>
           </div>
+          <Link
+            className="p-4 text-yellow-200 bg-yellow-800 rounded-lg opacity-70 hover:bg-yellow-700 active:bg-yellow-600"
+            href="/"
+          >
+            Back to Home
+          </Link>
         </div>
       </div>
     );
