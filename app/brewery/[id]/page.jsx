@@ -70,25 +70,22 @@ export default function BreweryPage({ params }) {
               {brewery.city}, {brewery.state}
             </span>
           </h2>
-          <div className="p-4 bg-yellow-800 rounded-lg">
+          <div className="w-3/4 p-4 text-yellow-800 bg-yellow-200 rounded-lg opacity-50">
             <p className="font-bold">Brewery Type:</p>
             <p>{capitalizedType}</p>
           </div>
-          <div className="p-4 bg-yellow-800 rounded-lg">
+          <div className="w-3/4 p-4 text-yellow-800 bg-yellow-200 rounded-lg opacity-50">
             <p className="font-bold">Brewery Address:</p>
             <p>{brewery.address_1}</p>
           </div>
-          <div className="p-4 bg-yellow-800 rounded-lg">
+          <div className="w-3/4 p-4 text-yellow-800 bg-yellow-200 rounded-lg opacity-50">
             <p className="font-bold">Brewery Phone:</p>
             <p>{formattedPhone}</p>
           </div>
-          <div className="p-4 bg-yellow-800 rounded-lg">
+          <div className="w-3/4 p-4 text-yellow-800 bg-yellow-200 rounded-lg opacity-50">
             <p className="font-bold">Brewery Website:</p>
             <p>
-              <a
-                href={brewery.website_url}
-                className="text-yellow-200 underline"
-              >
+              <a href={brewery.website_url} className="underline">
                 {brewery.website_url?.replace(/^(https?:\/\/)?(www\.)?/i, "")}
               </a>
             </p>
